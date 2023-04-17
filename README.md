@@ -186,4 +186,4 @@ I would like to thank microverse for their resources.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/admirerbrown/Rails-Blog_App/blob/develop/LICENCE.md) licensed.
+This project is [MIT](https://github.com/admirerbrown/RoR-recipe_app/blob/develop/LICENSE.md) licensed.
