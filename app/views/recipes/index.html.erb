@@ -1,0 +1,19 @@
+<section id="recipe-list">
+<p>you are logged in as <span><%= current_user.name %></span> </p>
+
+  <% @recipes.each_with_index do |recipe, index| %>
+    <div class="block-1">
+      <div class="unit-0">
+        <%= link_to recipe_path(recipe.id) do %>
+          <h1 class="title"><%= recipe.name %></h1>
+        <% end %>
+        <button>REMOVE</button>
+      </div>
+      <div class="unit-1">
+        <p class="desc"><%= recipe.description %></p>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</section>
+<%# Todo: add functionality to remove btn when authentication is added.. %>

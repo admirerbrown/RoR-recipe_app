@@ -1,0 +1,20 @@
+<section id="details">
+  <h1 class="center"><%=@recipe.name%></h1>
+  <div>
+    <p>Preparation time: <%= @recipe.preparation_time %></p>
+    <button>Public</button>
+  </div>
+  <p>Cooking time: <%= @recipe.cooking_time %></p>
+  <div>
+    <p>Steps</p>
+    <p><%= @recipe.description %></p>
+  </div>
+  <div>
+    <button>Generate shopping list</button>
+    <button>Add ingredient</button>
+    <hr>
+  </div>
+  <div class="food">
+  <p>food table will go here</p>
+  </div>
+</section>

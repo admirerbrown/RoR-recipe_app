@@ -1,0 +1,21 @@
+body {
+  font-family: Helvetica, Geneva, Arial, sans-serif;
+  font-size: small;
+  background-color: #fff;
+}
+
+.block-1 {
+  display: flex;
+}
+
+.block-1 {
+  border: 2px solid #000;
+  align-items: center;
+  width: 800px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.desc {
+  margin-bottom: 35px;
+}
