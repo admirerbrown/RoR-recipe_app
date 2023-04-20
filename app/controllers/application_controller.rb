@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    recipes_path
+    '/foods'
   end
 
+  # # Catch all CanCan errors and alert the user of the exception
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
+  end
 end

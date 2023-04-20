@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :recipes, foreign_key: :user_id
 
   validates :name, presence: true, length: { maximum: 250 }
+
+  def is_owner?(recipe_id)
+    recipes.exists?(id: recipe_id)
+  end
 end

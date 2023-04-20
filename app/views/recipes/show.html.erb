@@ -11,7 +11,10 @@
   </div>
   <div>
     <button>Generate shopping list</button>
-    <button>Add ingredient</button>
+    <% if current_user.is_owner? @recipe || @recipe.public === true%>
+        <button>Add ingredient</button>
+      <% end %>
+    
     <hr>
   </div>
   <div class="food">

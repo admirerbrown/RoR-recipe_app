@@ -12,6 +12,28 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <nav class="bg-blue-600">
+      <div class="mx-auto px-4 py-2">
+        <div class="flex justify-between">
+          <div class="nav">
+            <ul class="nav-items">
+              <% if current_user %>
+                <div class="user">
+                  <p>Logged In:</p>
+                  <h2><%= current_user.name %></h2>
+                </div>
+                <li><%= link_to "Foods", '/foods', class: "" %></li>
+                <li><%= link_to " My recipes", '/recipes', class: "" %></li>
+                <li><%= link_to "Public recipes", '', class: "" %></li>
+                <li><%= link_to "Shopping List", '', class: "" %></li>
+                <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,32 @@
+<h1>display food list</h1>
+<section id="food-list">
+  <button class="">
+    <%=link_to 'Add food',  new_food_path %>
+  </button>
+  <table>
+    <thead>
+      <tr>
+        <th>index</th>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each_with_index do |food, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= number_to_currency(food.price) %></td>
+          <td>
+          <%= button_to "Delete", food_path(food), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+<%# Todo: add functionality to remove btn when authentication is added.. %>
