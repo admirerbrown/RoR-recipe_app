@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # resources :recipes, only: [:index, :show,:create, :new, :destroy], path: 'recipes'
   # config/routes.rb
 patch 'recipes/:id/update_public', to: 'recipes#update_public', as: 'recipe_update_public'
+get '/public_recipes', to: 'public_recipes#index', as: 'public_recipes'
 
 
 resources :recipes, only: [:index, :show, :create, :new, :destroy], path: 'recipes' do

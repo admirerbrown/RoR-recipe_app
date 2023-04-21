@@ -25,7 +25,7 @@
                 </div>
                 <li><%= link_to "Foods", '/foods', class: "" %></li>
                 <li><%= link_to " My recipes", '/recipes', class: "" %></li>
-                <li><%= link_to "Public recipes", '', class: "" %></li>
+                <li><%= link_to "Public recipes", '/public_recipes', class: "" %></li>
                 <li><%= link_to "Shopping List", '', class: "" %></li>
                 <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "" %></li>
               <% end %>
