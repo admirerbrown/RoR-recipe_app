@@ -1,0 +1,46 @@
+<div>
+  <h1>Add Recipe</h1>
+  <%= form_with model: @recipe, url: recipes_path, local: true, class: "form" do |form| %>
+    <div class="col-sm-3">
+      <%= form.label :name  %></br>
+    <%= form.text_field :name, required: true, class: "form-control" %>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= form.label :preparation_time, class: "" %>
+    <div class="row">
+      <div class="col-sm-3">
+        <%= form.text_field :preparation_time_number, required: true, class: "form-control", placeholder: "enter number"%>
+      </div>
+      <div class="col-sm-3">
+        <%= form.select :preparation_time_unit, ['hour(s)', 'minute(s)'], { prompt: "hours/minutes" }, { required: true, class: "form-control"  } %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= form.label :cooking_time, class: "" %>
+    <div class="row">
+      <div class="col-sm-3">
+        <%= form.text_field :cooking_time_number, required: true, class: "form-control", placeholder: "enter number"%>
+      </div>
+      <div class="col-sm-3">
+        <%= form.select :cooking_time_unit, ['hours', 'minutes'], { prompt: "hours/minutes" }, { required: true, class: "form-control"  } %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="col-sm-6">
+    <%= form.label :description  %></br>
+  <%= form.text_area :description, required: true, class: "form-control" %>
+</div>
+<br>
+<div>
+  <%= form.submit "Add", class: "btn" %>
+  <button class="">
+    <%=link_to 'cancel', '/recipes' %>
+  </button>
+</div>
+<% end %>
+</div>
+

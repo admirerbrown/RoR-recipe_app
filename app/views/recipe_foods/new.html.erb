@@ -1,0 +1,25 @@
+<h1>Add Ingredients</h1>
+<%= form_tag recipe_foods_path, method: :post do %>
+  <%= hidden_field_tag :recipe_id, @recipe.id %>
+  <table>
+    <thead>
+      <tr>
+      <th>index</th>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Add</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.foods.each_with_index do |food, index| %>
+        <tr>
+        <td><%= index+1 %></td>
+          <td><%= food.name %></td>
+          <td><%= number_field_tag "quantity[#{food.id}]", nil, class: "quantity-field" %></td>
+          <td><input type="checkbox" name="add_food[]" value="<%= food.id %>"></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag "save" %>
+<% end %>

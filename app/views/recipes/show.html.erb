@@ -1,4 +1,4 @@
-<section id="details">
+<section id="recipe_details">
   <h1 class="center"><%=@recipe.name%></h1>
   <div>
     <p>Preparation time: <%= @recipe.preparation_time %></p>
@@ -12,12 +12,39 @@
   <div>
     <button>Generate shopping list</button>
     <% if current_user.is_owner? @recipe || @recipe.public === true%>
-        <button>Add ingredient</button>
-      <% end %>
-    
+      <button class="">
+        <%= link_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) %>
+      </button>
+    <% end %>
     <hr>
   </div>
   <div class="food">
-  <p>food table will go here</p>
+    <h3>Ingredients</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ingredients.each_with_index do |ingredient, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= ingredient.food.name %></td>
+            <td><%= ingredient.quantity %></td>
+            <td><%= ingredient.quantity * ingredient.food.price %></td>
+            <td>
+              <% if current_user.is_owner? @recipe%>
+                <%= button_to "Remove", recipe_food_path(recipe_id: @recipe.id, id: ingredient.id), method: :delete, data: { confirm: "Are you sure you want to delete this recipe food?" } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </section>

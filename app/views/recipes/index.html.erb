@@ -1,16 +1,16 @@
 <section id="recipe-list">
-<p>you are logged in as <span><%= current_user.name %></span> </p>
-
+  <button class="">
+    <%= link_to "New Recipe", new_recipe_path %>
+  </button>
   <% @recipes.each_with_index do |recipe, index| %>
     <div class="block-1">
       <div class="unit-0">
         <%= link_to recipe_path(recipe.id) do %>
           <h1 class="title"><%= recipe.name %></h1>
         <% end %>
-         <% if current_user.is_owner? recipe%>
-        <button>REMOVE</button>
-
-      <% end %>
+        <% if current_user.is_owner? recipe%>
+          <%= button_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
+        <% end %>
       </div>
       <div class="unit-1">
         <p class="desc"><%= recipe.description %></p>
