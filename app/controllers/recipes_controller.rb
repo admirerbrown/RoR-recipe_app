@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
   def index
     @recipes = current_user.recipes
-    # @recipes = Recipe.all
   end
 
   def show
@@ -11,6 +10,18 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+  end
+
+  def update_public
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update(public: params[:recipe][:public] == '1')
+      flash[:notice] = 'Recipe is now Public'
+    else
+      flash[:danger] = 'Sorry Failed To make Recipe Public!'
+    end
+
+    redirect_to request.referrer
   end
 
   def create
