@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 250 }
 
-  def is_owner?(recipe_id)
+  def owner?(recipe_id)
     recipes.exists?(id: recipe_id)
   end
 end
