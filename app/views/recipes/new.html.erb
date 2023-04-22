@@ -1,0 +1,42 @@
+<div class=" shadow col-6 h-600 mx-auto rounded border border-darker px-10 py-5">
+  <h1 class="text-center fw-bold">Add Recipe</h1>
+  <br>
+  <%= form_with model: @recipe, url: recipes_path, local: true, class: "form mx-auto" do |form| %>
+    <div class="col-sm-10 mb-3 mx-auto">
+      <%= form.label :name ,class: "form-label form-label" %></br>
+    <%= form.text_field :name, required: true, class: "form-control", placeholder: "recipe name" %>
+  </div>
+  <br>
+  <div class="row justify-content-center mb-3">
+    <%= form.label :preparation_time, class: " text-center form-label" %>
+    <div class="col-sm-5">
+      <%= form.text_field :preparation_time_number, required: true, class: "form-control", placeholder: "number"%>
+    </div>
+    <div class="col-sm-5 ">
+      <%= form.select :preparation_time_unit, ['hour(s)', 'minute(s)'], { prompt: "hr / min" }, { required: true, class: "form-control"  } %>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-center mb-3">
+    <%= form.label :cooking_time, class: "text-center form-label" %>
+    <div class="col-sm-5">
+      <%= form.text_field :cooking_time_number, required: true, class: "form-control", placeholder: "number"%>
+    </div>
+    <div class="col-sm-5">
+      <%= form.select :cooking_time_unit, ['hour(s)', 'minute(s)'], { prompt: "hr / min" }, { required: true, class: "form-control"  } %>
+    </div>
+  </div>
+  <br>
+  <div class="col-sm-10 mb-3 mx-auto">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, required: true, class: "form-control" %>
+  </div>
+  <br>
+  <div class="row col-md-2 mb-3 mx-auto">
+    <%= form.submit "Add", class:"btn btn-primary" %>
+    <button class="btn btn-light">
+      <%=link_to 'cancel', '/recipes' %>
+    </button>
+  </div>
+<% end %>
+</div>

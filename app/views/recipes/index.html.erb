@@ -1,0 +1,29 @@
+<section id="recipe-list">
+  <h1 class="text-center fw-bold">Your Recipe Catalogue</h1>
+<br>
+<br>
+<div class="text-center">
+ <button class="btn btn-success ">
+    <%= link_to "New Recipe", new_recipe_path, class:"text-white text-decoration-none" %>
+  </button>
+</div>
+<br>
+ 
+  <% @recipes.each_with_index do |recipe, index| %>
+    <div class="d-flex justify-content-between rounded shadow p-5 border-dark  w-75 mx-auto">
+      <div>
+        <%= link_to recipe_path(recipe.id),class: "text-decoration-none" do %>
+          <h3 class="title"><%= recipe.name %></h3>
+        <% end %>
+        <br>
+        <% if current_user.owner? recipe%>
+          <%= button_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: "Are you sure you want to delete this food?" }, class:"btn btn-danger" %>
+        <% end %>
+      </div>
+      <div class="unit-1">
+        <p class="desc"><%= recipe.description %></p>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</section>
