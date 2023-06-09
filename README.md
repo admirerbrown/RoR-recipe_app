@@ -74,6 +74,7 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 ### Key Features <a name="key-features"></a>
 
 - A login page.
+- user Authorization
 - A registration page.
 - A food list (with all CRUD implementation, except for 'update').
 - A recipes list (with all CRUD implementation, except for 'update').
